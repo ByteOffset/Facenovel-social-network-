@@ -1,39 +1,44 @@
-package lab14;
-
-import java.util.Comparator;
+package GeoNet;
 
 /**
- * Created by preston.peterson651 on 12/2/15.
+ * A class that holds user profile data
  */
-public class Profile implements Comparable<Profile> {
+public class Profile implements Comparable<Profile>
+{
 
     private String name;
     private String phoneNumber;
     private String cityOfResidence;
 
-    Profile(String name, String phoneNumber, String cityOfResidence) {
+    Profile(String name, String phoneNumber, String cityOfResidence)
+    {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.cityOfResidence = cityOfResidence;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return this.name;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber)
+    {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setCityOfResidence(String cityOfResidence) {
+    public void setCityOfResidence(String cityOfResidence)
+    {
         this.cityOfResidence = cityOfResidence;
     }
 
-    public String getPhoneNumber() {
+    public String getPhoneNumber()
+    {
         return this.phoneNumber;
     }
 
-    public String getCityOfResidence() {
+    public String getCityOfResidence()
+    {
         return this.cityOfResidence;
     }
 
@@ -43,7 +48,8 @@ public class Profile implements Comparable<Profile> {
      * @return 1 if name is unique or 0 if name is a duplicate entry
      */
     @Override
-    public int compareTo(Profile other) {
+    public int compareTo(Profile other)
+    {
         return this.name.compareToIgnoreCase(other.getName());
     }
 }

@@ -1,30 +1,51 @@
-package lab14;
+package GeoNet;
 
 import java.util.Stack;
 
 /**
- * Created by Preston on 12/4/2015.
+ * A class that represents a physical map of most of the cities in Ventura County, California
  */
-public class VenturaCountyMap {
+public class VenturaCountyMap
+{
     UndirectedGraph<String> countyMap;
     public static final String[] CITIES_OF_VENTURA_COUNTY = new String[]{"Camarillo",
             "Fillmore", "Moorpark", "Ojai", "Oxnard", "Port Hueneme", "Santa Paula",
             "Simi Valley", "Thousand Oaks", "Ventura"};
 
-    public VenturaCountyMap() {
-        this.countyMap = new UndirectedGraph<>();
+    public VenturaCountyMap()
+    {
+        this.countyMap = new UndirectedGraph<String>();
         drawMap();
     }
 
-    public double getCheapestPath(String destination, String start, Stack stack) {
+    /**
+     *
+     * @param destination name of the destination vertex
+     * @param start name of the starting vertex
+     * @param stack returned with all the vertices that exist along the cheapest (shortest) path between the given vertices
+     * @return the cost (total distance in miles) of the cheapest (shortest) path between two given users
+     */
+    public double getCheapestPath(String destination, String start, Stack stack)
+    {
         return this.countyMap.getCheapestPath(start, destination, stack);
     }
 
-    public boolean hasEdge(String begin, String end) {
+    /**
+     *
+     * @param begin vertex
+     * @param end vertex
+     * @return true if there exists an edge between the given vertices
+     */
+    public boolean hasEdge(String begin, String end)
+    {
         return this.countyMap.hasEdge(begin, end);
     }
 
-    private void drawMap() {
+    /**
+     * build the vertices and edges of the Ventura County map
+     */
+    private void drawMap()
+    {
         //vertices of countyMap are in all lower case
         for (int i = 0; i < CITIES_OF_VENTURA_COUNTY.length; i++) {
             countyMap.addVertex(CITIES_OF_VENTURA_COUNTY[i].toLowerCase());
@@ -71,14 +92,5 @@ public class VenturaCountyMap {
         countyMap.addEdge("ventura", "ojai", 22);
         countyMap.addEdge("ventura", "santa paula", 13);
         countyMap.addEdge("ventura", "oxnard", 9);
-
-
-//        FOR DEBUGGING:
-//        System.out.print("The county map is ");
-//        System.out.println(countyMap.isConnected("ventura") ? "connected." : "disconnected.");
-//        System.out.print("The number of vertices in the countyMap is: ");
-//        System.out.println(countyMap.getNumberOfVertices());
-//        System.out.print("The number of edges in the countyMap is: ");
-//        System.out.println(countyMap.getNumberOfEdges() + "\n");
     }
 }

@@ -1,1 +1,1 @@
-package lab14;/** * An interface for the ADT graph. * * @author Frank M. Carrano * @version 11/21/2015 */public interface GraphInterface<T> extends BasicGraphInterface<T>,        GraphAlgorithmsInterface<T>{}
+package GeoNet;/** * An interface for the ADT graph. */public interface GraphInterface<T> extends BasicGraphInterface<T>,        GraphAlgorithmsInterface<T>{}

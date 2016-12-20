@@ -1,34 +1,72 @@
-package lab14;
+package GeoNet;
 
 import java.util.Queue;
 import java.util.Stack;
 
 /**
- * Created by preston.peterson651 on 12/2/2015.
+ * A class that represents an undirected graph
  */
-public class UndirectedGraph<T> extends DirectedGraph<T>
-        implements GraphInterface<T>, ConnectedGraphInterface<T>, java.io.Serializable {
-    UndirectedGraph() {
+public class UndirectedGraph<E> extends DirectedGraph<E>
+        implements GraphInterface<E>, ConnectedGraphInterface<E>, java.io.Serializable
+{
+    public UndirectedGraph()
+    {
         super();
     }
 
-    public int getNumberOfEdges() {
+    /**
+     *
+     * @return number of edges in the graph
+     */
+    public int getNumberOfEdges()
+    {
         return super.getNumberOfEdges() / 2;
     }
 
-    public boolean addEdge(T begin, T end, double edgeWeight) {
+    /**
+     *
+     * @param begin      An object that labels the origin vertex of the edge.
+     * @param end        An object, distinct from begin, that labels the end
+     *                   vertex of the edge.
+     * @param edgeWeight The real value of the edge's weight.
+     * @return true if the edge was successfully added
+     */
+    public boolean addEdge(E begin, E end, double edgeWeight)
+    {
         super.addEdge(begin, end, edgeWeight);
         return super.addEdge(end, begin, edgeWeight);
     }
-    public boolean addEdge(T begin, T end) {
+
+    /**
+     *
+     * @param begin An object that labels the origin vertex of the edge.
+     * @param end   An object, distinct from begin, that labels the end
+     *              vertex of the edge.
+     * @return true if the edge was successfully added
+     */
+    public boolean addEdge(E begin, E end)
+    {
         return addEdge(begin, end, 0);
     }
-    public Stack<T> getTopologicalOrder() throws UnsupportedOperationException {
+
+    /**
+     *
+     * @return the topological order of the vertices (cities)
+     * @throws UnsupportedOperationException
+     */
+    public Stack<E> getTopologicalOrder() throws UnsupportedOperationException
+    {
         return super.getTopologicalOrder();
     }
 
-    public boolean isConnected(T origin) {
-        Queue<T> breadth = getBreadthFirstTraversal(origin);
+    /**
+     *
+     * @param origin any vertex
+     * @return true if the graph is connected
+     */
+    public boolean isConnected(E origin)
+    {
+        Queue<E> breadth = getBreadthFirstTraversal(origin);
         int vertices = breadth.size(); //number of vertices in traversal
         return vertices == super.getNumberOfVertices();
     }
