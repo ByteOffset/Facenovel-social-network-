@@ -1,1 +1,0 @@
-package GeoNet;/** * An interface for the ADT graph. */public interface GraphInterface<T> extends BasicGraphInterface<T>,        GraphAlgorithmsInterface<T>{}

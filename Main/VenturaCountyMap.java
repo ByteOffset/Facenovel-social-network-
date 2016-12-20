@@ -1,4 +1,6 @@
-package GeoNet;
+package GeoNet.Main;
+
+import GeoNet.Graphs.UndirectedGraph;
 
 import java.util.Stack;
 
@@ -7,14 +9,14 @@ import java.util.Stack;
  */
 public class VenturaCountyMap
 {
-    UndirectedGraph<String> countyMap;
+    private UndirectedGraph<String> countyMap;
     public static final String[] CITIES_OF_VENTURA_COUNTY = new String[]{"Camarillo",
             "Fillmore", "Moorpark", "Ojai", "Oxnard", "Port Hueneme", "Santa Paula",
             "Simi Valley", "Thousand Oaks", "Ventura"};
 
     public VenturaCountyMap()
     {
-        this.countyMap = new UndirectedGraph<String>();
+        this.countyMap = new UndirectedGraph<>();
         drawMap();
     }
 

@@ -1,4 +1,4 @@
-package GeoNet;
+package GeoNet.Graphs;
 
 import java.util.Queue;
 import java.util.Stack;

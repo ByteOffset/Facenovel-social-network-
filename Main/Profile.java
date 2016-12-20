@@ -1,4 +1,4 @@
-package GeoNet;
+package GeoNet.Main;
 
 /**
  * A class that holds user profile data

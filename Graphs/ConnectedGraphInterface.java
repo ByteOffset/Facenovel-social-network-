@@ -1,0 +1,1 @@
+package GeoNet.Graphs;/** * An interface for a graph that could be connected. */public interface ConnectedGraphInterface<E> extends GraphInterface<E>{    /**     * Sees whether this graph is connected.     *     * @param origin any vertex     * @return true if the graph is connected     */    boolean isConnected(E origin);}
